@@ -82,6 +82,15 @@ main
 }
 .background
 {
-  width: 100%;
-  height: 80%;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.background img
+{
+  width: 80%;
+  height: 60%;
+  margin-top: 30px;
 }
