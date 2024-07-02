@@ -1,11 +1,11 @@
 const express=require('express');
 const mongoose=require('mongoose');
 const dotenv=require('dotenv').config({path:'../config.env'});
-const ejs=require('ejs');
 const path = require('path');
 const app=express();
 
-app.set('ejs','views');
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname,'public')));
 
