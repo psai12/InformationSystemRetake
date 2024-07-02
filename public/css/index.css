@@ -17,6 +17,7 @@ header
   right: 0;
   margin: 0px;
   padding: 0px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .logo
 {
@@ -82,23 +83,24 @@ main
 {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   width: 100%;
-
+  flex-direction: column;
 }
 .background
 {
   width: 80%;
-  height: 90%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.382);
   border-radius: 8px;
+  flex-direction: column;
 }
 .background img
 {
-  width: 80%;
+  width: 95%;
   height: 60%;
   margin-top: 30px;
 }
