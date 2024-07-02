@@ -102,5 +102,17 @@ main
 {
   width: 95%;
   height: 60%;
-  margin-top: 30px;
+  margin-top: 10px;
+}
+.background .section
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.section h2
+{
+  margin-left: 20px;
 }
