@@ -156,3 +156,8 @@ main
   color: white;
   font-weight: 600;
 }
+.section2 a
+{
+  text-decoration: none;
+  color: white;
+}
