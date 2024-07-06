@@ -123,12 +123,16 @@ main
   align-items: center;
   width: 100%;
   flex-direction: column;
+
+  width: 100%;
 }
 .booksection
 {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: antiquewhite;
+  width: 100%;
 }
 .booksection .booksubsection
 {
@@ -138,4 +142,13 @@ main
   flex-direction: column;
   height: 400px;
   width: 200px;
+}
+.booksubsection button
+{
+  width: 150px;
+  height: 30px;
+  background-color: rgb(50, 99, 168);
+  border: none;
+  color: white;
+  font-weight: 600;
 }
