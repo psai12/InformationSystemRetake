@@ -116,11 +116,26 @@ main
 {
   margin-left: 20px;
 }
-.booksection
+.section
 {
   display: flex;
   justify-content: center; 
   align-items: center;
   width: 100%;
   flex-direction: column;
+}
+.booksection
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.booksection .booksubsection
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  width: 200px;
 }
