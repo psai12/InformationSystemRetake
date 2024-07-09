@@ -191,3 +191,13 @@ main{
   border: 1px solid rgba(0, 0, 0, 0.407);
   margin-top: 20px;
 }
+.loginsection form
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  height: 100%;
+  flex-direction: column;
+  background-color: red;
+}
