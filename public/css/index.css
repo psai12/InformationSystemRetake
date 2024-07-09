@@ -161,3 +161,25 @@ main
   text-decoration: none;
   color: white;
 }
+
+/* login section */
+main{
+  background-color: bisque;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+.loginsection
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:400px;
+  height: 80vh;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+}
