@@ -205,6 +205,10 @@ form label
   font-weight: 600;
   margin-top: 20px;
 }
+.loginsection h2
+{
+  margin-top: 20px;
+}
 form input
 {
 
