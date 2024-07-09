@@ -201,3 +201,14 @@ main{
   flex-direction: column;
   background-color: red;
 }
+form label
+{
+  font-weight: 600;
+}
+form input
+{
+  margin-bottom: 20px;
+  width: 400px;
+  height:30px;
+  font-weight: 600;
+}
