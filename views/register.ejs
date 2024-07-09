@@ -10,7 +10,18 @@
 <body>
     <%- include('./Components/header') %> 
     <main>
-        
+        <div class="loginsection">
+            <h2>Login In</h2>
+            <hr/>
+            <form method="post" action="/">
+              <label>Email</label>
+               <input type="text" placeholder="Email"/>
+               <label>Password</label>
+               <input type="text" placeholder="Password"/>
+               <button>Login</button>
+               <label>Not a member yet? <a href="/signup">Signup now</a></label>
+            </form>
+          </div>
     </main>
     <footer>
 
