@@ -183,4 +183,11 @@ main{
   background-color: white;
   border-radius: 5px;
   border: 1px solid black;
+  flex-direction: column;
+}
+.loginsection hr
+{
+  width: 80%;
+  border: 1px solid rgba(0, 0, 0, 0.407);
+  margin-top: 20px;
 }
