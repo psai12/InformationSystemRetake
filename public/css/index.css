@@ -212,3 +212,10 @@ form input
   height:30px;
   font-weight: 600;
 }
+form button
+{
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+  font-weight: 600;
+}
