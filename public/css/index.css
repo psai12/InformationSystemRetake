@@ -195,19 +195,19 @@ main{
 {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   width: 90%;
   height: 100%;
   flex-direction: column;
-  background-color: red;
 }
 form label
 {
   font-weight: 600;
+  margin-top: 20px;
 }
 form input
 {
-  margin-bottom: 20px;
+
   width: 400px;
   height:30px;
   font-weight: 600;
