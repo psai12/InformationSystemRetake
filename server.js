@@ -29,6 +29,7 @@ app.get('/login',(req,res)=>{
 
         if(user)
         {
+          res.cookie('user',req.email,{maxAge:100000});
           res.send('User found!');
         }
         else
@@ -58,6 +59,7 @@ app.get('/register',(req,res)=>{
            });
         if(user)
         {
+     
           res.send('User has been created!');
         }
         else
