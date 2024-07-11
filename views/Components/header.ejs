@@ -21,8 +21,13 @@
         <h3>Blog</h3>
     </div>
     <div class="subsection">
-        <h3><a href="/login">Login</a></h3>
-        <h3><a href="/register">Register</a></h3>
+        <% if (cookies) { %>
+            <h3>Welcome, <%= cookies %>!</h3>
+            <h3><a href="/logout">Logout</a></h3>
+        <% } else { %>
+            <h3><a href="/login">Login</a></h3>
+            <h3><a href="/register">Register</a></h3>
+        <% } %>
     </div>
 </div>
 </header>
