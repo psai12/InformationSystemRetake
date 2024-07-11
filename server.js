@@ -16,19 +16,19 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+app.use((req, res, next) => {
+     res.locals.cookies = req.cookies.user || ''; 
+     next();
+ });
 
 app.get('/',(req,res)=>{
      console.log(req.cookies)
-     const cookies=req.cookies;
-     if(cookies)
-     {
-          res.render('index.ejs',{'cookies':cookies.user});
-     }
-     else
-           res.render('index.ejs');
+     const user=req.cookies.user;
+
+     res.render('index.ejs', { cookies: user || '' });
 });
 app.get('/login',(req,res)=>{
-     res.render('login.ejs');
+     res.render('login.ejs',{ cookies: res.locals.cookies });
 })
 .post('/login',CheckForLoginDetails,async (req,res,next)=>{
      try
@@ -56,7 +56,7 @@ app.get('/login',(req,res)=>{
 
 
 app.get('/register',(req,res)=>{
-     res.render('register.ejs');
+     res.render('register.ejs',{ cookies: res.locals.cookies });
 })
 .post('/register',CheckForRegisterDetails,async (req,res)=>{
   
