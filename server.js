@@ -5,6 +5,7 @@ const path = require('path');
 const app=express();
 const database=require('mongoose');
 const dbConnect = require('./database/database.js');
+const register=require('./models/registermodel.js');
 
 dbConnect();
 app.set('view engine', 'ejs');

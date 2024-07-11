@@ -3,22 +3,22 @@ const mongo=require('mongoose');
 const schema=mongo.Schema({
   
 name:{
-    Type:String,
+    type:String,
     required:true
 },
   
 email:{
-    Type:String,
+    type:String,
     required:true,
     unique:true,
 },
   
 password:{
-    Type:String,
+    type:String,
     required:true
 }
 })
 
-const registermodel=mongo.model('resgitermodel',schema);
+const registermodel=mongo.model('registermodel',schema);
 
-module.exports=registermodel;
+module.exports={registermodel};
