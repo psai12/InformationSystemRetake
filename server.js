@@ -21,8 +21,29 @@ app.get('/login',(req,res)=>{
      res.render('login.ejs');
 })
 .post('/login',CheckForLoginDetails,async (req,res,next)=>{
-
+     try
+     {
+          const user = await registermodel.create({
+               name: req.name,
+               email: req.email,
+               password: req.password
+           });
+        if(user)
+        {
+          res.send('User has been created!');
+        }
+        else
+        {
+          res.status(400).send('Some details are mismatching!');
+        }
+     }
+     catch(exp)
+     {
+          res.status(500).send('An error occurred while creating the user');
+     }
 });
+
+
 
 app.get('/register',(req,res)=>{
      res.render('register.ejs');
@@ -85,13 +106,8 @@ function CheckForRegisterDetails(req,res,next){
 }
 
 function CheckForLoginDetails(req,res,next){
-     const {name,email,password,confirmpassword}=req.body;
-     if(name=='')
-     {
-          console.log('name is empty');
-          return res.status(400).send('Name is required');
-     }
-     else if(email=='')
+     const {email,password}=req.body;
+     if(email=='')
      {
           console.log('email is empty');
           return res.status(400).send('Email is required');
@@ -101,17 +117,6 @@ function CheckForLoginDetails(req,res,next){
           console.log('password is empty');
           return res.status(400).send('Password is required');
      }
-     else if(confirmpassword=='')
-     {
-          console.log('confirmpassword is empty');
-          return res.status(400).send('Confirm password is required');
-     }
-     else if(password!==confirmpassword)
-     {
-          console.log('Password does not match');
-          return res.status(400).send('Password does not match');
-     }
-     req.name=name;
      req.email=email
      req.password=password
      next();
