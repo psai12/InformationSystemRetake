@@ -22,9 +22,8 @@ app.use((req, res, next) => {
  });
 
 app.get('/',(req,res)=>{
-     console.log(req.cookies)
+     
      const user=req.cookies.user;
-
      res.render('index.ejs', { cookies: user || '' });
 });
 app.get('/login',(req,res)=>{
@@ -53,6 +52,11 @@ app.get('/login',(req,res)=>{
      }
 });
 
+
+app.get('/logout',(req,res)=>{
+   res.cookie('user','',{expires:new Date(Date.now())});
+   res.redirect('/');
+});
 
 
 app.get('/register',(req,res)=>{
