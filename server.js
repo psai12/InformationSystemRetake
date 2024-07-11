@@ -23,6 +23,8 @@ app.get('/login',(req,res)=>{
 });
 
 app.get('/register',(req,res)=>{
-     
+     const {email,password,confirmpassword}=req.body;
+
+     console.log(email,password,confirmpassword)
 });
 app.listen("2000",()=>{console.log('Server started!')});
