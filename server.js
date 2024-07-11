@@ -23,14 +23,13 @@ app.get('/login',(req,res)=>{
 .post('/login',CheckForLoginDetails,async (req,res,next)=>{
      try
      {
-          const user = await registermodel.create({
-               name: req.name,
+          const user = await registermodel.findOne({
                email: req.email,
-               password: req.password
            });
+
         if(user)
         {
-          res.send('User has been created!');
+          res.send('User found!');
         }
         else
         {
