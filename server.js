@@ -6,6 +6,7 @@ const app=express();
 const database=require('mongoose');
 const dbConnect = require('./database/database.js');
 const registermodel=require('./models/registermodel.js');
+const cookieParser = require('cookie-parser');
 
 dbConnect();
 app.set('view engine', 'ejs');
@@ -14,8 +15,17 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(cookieParser());
+
 app.get('/',(req,res)=>{
-     res.render('index.ejs');
+     console.log(req.cookies)
+     const cookies=req.cookies;
+     if(cookies)
+     {
+          res.render('index.ejs',{'cookies':cookies.user});
+     }
+     else
+           res.render('index.ejs');
 });
 app.get('/login',(req,res)=>{
      res.render('login.ejs');
@@ -30,7 +40,7 @@ app.get('/login',(req,res)=>{
         if(user)
         {
           res.cookie('user',req.email,{maxAge:100000});
-          res.send('User found!');
+          res.redirect('/')
         }
         else
         {
