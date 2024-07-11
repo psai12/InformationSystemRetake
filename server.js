@@ -5,7 +5,7 @@ const path = require('path');
 const app=express();
 const database=require('mongoose');
 const dbConnect = require('./database/database.js');
-const register=require('./models/registermodel.js');
+const registermodel=require('./models/registermodel.js');
 
 dbConnect();
 app.set('view engine', 'ejs');
@@ -24,17 +24,27 @@ app.get('/login',(req,res)=>{
 app.get('/register',(req,res)=>{
      res.render('register.ejs');
 })
-.post('/register',async (req,res,next)=>{
+.post('/register',CheckForDetails,async (req,res)=>{
   
-     CheckForDetails(req,res,next);
-     
      try
      {
-        const user
+          const user = await registermodel.create({
+               name: req.name,
+               email: req.email,
+               password: req.password
+           });
+        if(user)
+        {
+          res.send('User has been created!');
+        }
+        else
+        {
+          res.status(400).send('Some details are mismatching!');
+        }
      }
      catch(exp)
      {
-
+          res.status(500).send('An error occurred while creating the user');
      }
 });
 
@@ -60,6 +70,14 @@ function CheckForDetails(req,res,next){
           console.log('confirmpassword is empty');
           return res.status(400).send('Confirm password is required');
      }
+     else if(password!==confirmpassword)
+     {
+          console.log('Password does not match');
+          return res.status(400).send('Password does not match');
+     }
+     req.name=name;
+     req.email=email
+     req.password=password
      next();
 }
 app.listen("2000",()=>{console.log('Server started!')});

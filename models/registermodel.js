@@ -21,4 +21,4 @@ password:{
 
 const registermodel=mongo.model('registermodel',schema);
 
-module.exports={registermodel};
+module.exports=registermodel;
