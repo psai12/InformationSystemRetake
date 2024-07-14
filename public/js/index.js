@@ -1,7 +1,7 @@
 function ImageSelector(id)
 {
-    const imagesection=document.getElementById(id);
+    const imagesection=document.getElementById(id).firstElementChild;
     const innerHtml=imagesection.innerHTML;
 
-    console.log(innerHtml);
+    console.log(imagesection);
 }
