@@ -15,10 +15,10 @@
         <img src="assets/background.jpg"/>
          <div class="section">
             <h2>Trending Books</h2>
-            <div class="booksection" id="image1">
-              <div class="booksubsection">
+            <div class="booksection" >
+              <div class="booksubsection" id="image1">
                 <img src="assets/section1book1.jpg" />
-                <button>Not In Library</button>
+                <button onclick="ImageSelector('image1')">Not In Library</button>
               </div>
               <div class="booksubsection" id="image2">
                 <img src="assets/section1book2.jpg" />
@@ -160,6 +160,4 @@
  </div>
       </div>
     </main>
-    <%= include('./Components/footer.js') %>
-</body>
-</html>
+    <%- include('./Components/footer.ejs') %>
