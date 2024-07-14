@@ -223,3 +223,18 @@ form button
   height: 30px;
   font-weight: 600;
 }
+.overlaypreview
+{
+  position: fixed;
+  background-color: white;
+  height: 90%;
+  width: 90%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+    justify-content: center;
+    align-items: center;
+     max-width: 800px;
+     flex-direction: column;
+}
