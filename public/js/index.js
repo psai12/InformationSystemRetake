@@ -1,4 +1,4 @@
-function ImageSelector(id)
+function ImageSelector(id,value=false)
 {
 
     const imagesection=document.getElementById(id);
@@ -6,10 +6,14 @@ function ImageSelector(id)
     const button=imagesection.lastElementChild;
     const overlay=document.querySelector('.overlaypreview');
     let overlayimage=overlay.lastElementChild.src;
-    button.addEventListener('click',()=>{
-        overlay.style.display="flex";
-          overlay.lastElementChild.src=image;
-    })
+    if(value)
+    {
+        button.addEventListener('click',()=>{
+            overlay.style.display="flex";
+              overlay.lastElementChild.src=image;
+        })
+    }
+
    
 }
 
