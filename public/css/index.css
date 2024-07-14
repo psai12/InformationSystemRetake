@@ -233,8 +233,30 @@ form button
   left:50%;
   transform: translate(-50%, -50%);
   display: flex;
-    justify-content: center;
-    align-items: center;
-     max-width: 800px;
-     flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    max-width: 800px;
+    flex-direction: column;
+}
+.overlaypreview .cross
+{
+  width: 7%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.cross img
+{
+  width:"50px";
+  height:"50px";
+  margin-right: 20px;
+
+}
+.displayoff
+{
+display: none;
 }
