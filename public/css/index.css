@@ -233,10 +233,11 @@ form button
   left:50%;
   transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
     max-width: 800px;
     flex-direction: column;
+    display: none;
 }
 .overlaypreview .cross
 {
