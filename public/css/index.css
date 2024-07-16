@@ -261,3 +261,9 @@ form button
 {
 display: none;
 }
+.overlaypreview button
+{
+  width: 100px;
+  height: 30px;
+  border: none;
+}
