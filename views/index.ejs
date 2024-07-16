@@ -13,6 +13,9 @@
       <div class="background">
         <h1>Welcome to Open Library</h1>
         <img src="assets/background.jpg"/>
+        <div class="searchsection">
+          <input type="text" name="search" placeholder="Search for books">
+        </div>
          <div class="section">
             <h2>Trending Books</h2>
             <div class="booksection" >
@@ -194,7 +197,11 @@
    </div>
    <img src="assets/background.jpg"/>
    <h3>$10</h3>
+   <% if (cookies) { %> 
    <button onclick="AddToCart(this.parentElement)">Add to Cart</button>
+   <% } else { %> 
+    <button onclick="window.location.href='/login'">Login First</button>
+    <% } %> 
  </div>
       </div>
     </main>
