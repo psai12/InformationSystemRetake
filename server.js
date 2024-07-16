@@ -26,6 +26,13 @@ app.get('/',(req,res)=>{
      const user=req.cookies.user;
      res.render('index.ejs', { cookies: user || '' });
 });
+
+app.get('/cart',(req,res)=>{
+     
+     const user=req.cookies.user;
+     res.render('cart.ejs', { cookies: user || '' });
+});
+
 app.get('/login',(req,res)=>{
      res.render('login.ejs',{ cookies: res.locals.cookies });
 })
