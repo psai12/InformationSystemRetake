@@ -30,10 +30,17 @@ cross.addEventListener('click',()=>{
 let cart=[]
 function AddToCart(element)
 {
-    const img=element.querySelectorAll('img')[1];
-    const h3=element.querySelector('h3');
+    const img=element.querySelectorAll('img')[1].src;
+    const h3=element.querySelector('h3').innerText;
 
     const obj={img,h3};
+   
+    
+    const existing=cart.some(e=>e.img==cart.img && e.h3== cart.h3)
 
+    if(!existing)
+      cart.push(obj);
 
+    sessionStorage.setItem("cart",JSON.stringify(cart));
+    console.log(cart);
 }
