@@ -35,11 +35,19 @@ app.get('/login',(req,res)=>{
           const user = await registermodel.findOne({
                email: req.email,
            });
-
+         console.log(req.email,req.password)
         if(user)
         {
-          res.cookie('user',req.email,{maxAge:100000});
-          res.redirect('/')
+     
+          if(user.password==req.password)
+          {
+               res.cookie('user',req.email,{maxAge:100000});
+               res.redirect('/')
+          }
+          else
+          {
+               res.status(400).send('Password Incorrect!');
+          }
         }
         else
         {
@@ -114,6 +122,7 @@ function CheckForRegisterDetails(req,res,next){
           console.log('Password does not match');
           return res.status(400).send('Password does not match');
      }
+
      req.name=name;
      req.email=email
      req.password=password
@@ -132,8 +141,10 @@ function CheckForLoginDetails(req,res,next){
           console.log('password is empty');
           return res.status(400).send('Password is required');
      }
+     
      req.email=email
      req.password=password
+     console.log('check',password)
      next();
 }
 
