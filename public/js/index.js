@@ -36,11 +36,17 @@ function AddToCart(element)
     const obj={img,h3};
    
     
-    const existing=cart.some(e=>e.img==cart.img && e.h3== cart.h3)
+    const existing=cart.some(e=>e.img==obj.img && e.h3== obj.h3)
 
     if(!existing)
+    {
+      alert("Item added to cart!");
       cart.push(obj);
-
+    }
+    else
+    {
+      alert("User can purchase 1 book at a time")
+    }
     sessionStorage.setItem("cart",JSON.stringify(cart));
     console.log(cart);
 }
