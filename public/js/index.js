@@ -50,3 +50,9 @@ function AddToCart(element)
     sessionStorage.setItem("cart",JSON.stringify(cart));
     console.log(cart);
 }
+
+const search=document.querySelector('#search');
+
+search.addEventListener('input',(e)=>{
+  console.log(e.target.value);
+})
