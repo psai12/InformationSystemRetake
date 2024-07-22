@@ -1,3 +1,30 @@
+window.onload=()=>{
+  if(window.location.pathname==='/cart')
+  {
+
+    const section=document.querySelector('.section');
+    const cart=JSON.parse(sessionStorage.getItem("cart"));
+    
+    cart.map((item)=>{
+
+      const booksubsection=document.createElement('div')
+      booksubsection.classList.add('booksubsection');
+      const img=document.createElement('img');
+      const text=document.createElement('h3');
+      const button=document.createElement('button');
+
+      img.src=item.img;
+      text.innerText=item.h3;
+      button.innerText=('Remove from cart!');
+      
+      booksubsection.append(img,text,button);
+      section.append(booksubsection);
+ 
+    });
+
+  }
+}
+
 function ImageSelector(id,value=false)
 {
 
@@ -48,7 +75,6 @@ function AddToCart(element)
       alert("User can purchase 1 book at a time")
     }
     sessionStorage.setItem("cart",JSON.stringify(cart));
-    console.log(cart);
 }
 
 const search=document.querySelector('#search');
