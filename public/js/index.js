@@ -5,6 +5,12 @@ window.onload=()=>{
     const section=document.querySelector('.section');
     const cart=JSON.parse(sessionStorage.getItem("cart"));
     
+    if(cart.length===0)
+    {
+      const emptytext=document.querySelector('.emptytext');
+      emptytext.style.display="flex";
+      return;
+    }
     cart.map((item)=>{
 
       const booksubsection=document.createElement('div')
@@ -16,7 +22,7 @@ window.onload=()=>{
       img.src=item.img;
       text.innerText=item.h3;
       button.innerText=('Remove from cart!');
-      
+      button.addEventListener('click',()=>RemoveFromCart(item));
       booksubsection.append(img,text,button);
       section.append(booksubsection);
  
@@ -41,7 +47,7 @@ function ImageSelector(id,value=false)
             overlay.style.display="flex";
               overlay.querySelectorAll('img')[1].src=image;
               overlay.querySelector('h3').innerText=price;
-        })
+        });
     }
 
    
@@ -138,3 +144,12 @@ search.addEventListener('input',(e)=>{
 
 });
 
+function RemoveFromCart(element)
+{
+   const cart=JSON.parse(sessionStorage.getItem('cart'));
+   console.log('before',cart)
+  const filterCart= cart.filter(e=>e.img!==element.img && e.h3 !==element.h3 )
+  
+  sessionStorage.setItem('cart',JSON.stringify(filterCart));
+   window.location.reload();
+}
