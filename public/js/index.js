@@ -53,6 +53,62 @@ function AddToCart(element)
 
 const search=document.querySelector('#search');
 
+const storedbooks=document.querySelector('.storedbooks');
+const searchedbooks=document.querySelector('.searchbooks');
+
+storedbooks.style.display="block";
+searchedbooks.style.display="none";
 search.addEventListener('input',(e)=>{
-  console.log(e.target.value);
-})
+  storedbooks.style.display="none";
+  searchedbooks.style.display="block";
+   fetch(`/search/${e.target.value}`,{method:'GET'})
+   .then(res=> { if (!res.ok) {
+    throw new Error('Network response was not ok');
+         }
+    return res.json();})
+   .then(products=>
+    {
+      const container = searchedbooks.querySelector('.booksection');
+      container.innerHTML = ''; // Clear previous search results
+
+      products.forEach(product => {
+        // Create elements for each product
+        const div = document.createElement('div');
+        div.classList.add('booksubsection'); // Remove dot from classList.add()
+
+        const img = document.createElement('img');
+        img.src = product.imgpath;
+        div.appendChild(img);
+
+        const price = document.createElement('h3');
+        price.innerText = product.price;
+        div.appendChild(price);
+
+        const name = document.createElement('h4');
+        name.innerText = product.name;
+        div.appendChild(name);
+
+        // Add more elements as needed (e.g., description, buttons)
+
+        // Append the created div to the container
+        container.appendChild(div);})
+
+        // console.log(products,container);
+        // container.innerHTML = ''; 
+        // products.forEach(product => {
+        //     const productDiv = document.createElement('div');
+        //     productDiv.innerHTML = `
+        //         <div class="imgsection" id="col">
+        //         <h4>${product.name}</h4>
+        //         <img src="${product.imgpath}" alt="${product.name}">
+        //         <p>Price: ${product.price}</p>
+        //            <button onclick="cartFunction('${product.name}')">Add Cart</button>
+        //         </div>
+        //     `
+        //     container.appendChild(productDiv);});
+   
+          
+    }).catch(e=>console.log('err',e));
+
+});
+

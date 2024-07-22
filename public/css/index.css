@@ -93,7 +93,7 @@ main
 }
 .background
 {
-  width: 80%;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
@@ -146,6 +146,7 @@ main
   flex-direction: column;
   height: 400px;
   width: 200px;
+  flex-wrap: wrap;
 }
 .booksubsection button
 {

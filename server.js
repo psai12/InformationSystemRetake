@@ -6,6 +6,7 @@ const app=express();
 const database=require('mongoose');
 const dbConnect = require('./database/database.js');
 const registermodel=require('./models/registermodel.js');
+const productmodel=require('./models/productmode.js');
 const cookieParser = require('cookie-parser');
 
 dbConnect();
@@ -67,6 +68,56 @@ app.get('/login',(req,res)=>{
      }
 });
 
+app.post('/addproducts',async (req,res)=>{
+     ProductCollection = [
+          {"name": "Control your mind", "price": "$10", "imgpath": "assets/section1book1.jpg"},
+          {"name": "Court", "price": "$10", "imgpath": "assets/section1book2.jpg"},
+          {"name": "Seven Husbands", "price": "$13", "imgpath": "assets/section1book3.jpg"},
+          {"name": "Game of thrones", "price": "$12", "imgpath": "assets/section1book4.jpg"},
+          {"name": "fifty shades", "price": "$11", "imgpath": "assets/section1book5.jpg"},
+          {"name": "I don't love", "price": "$20", "imgpath": "assets/section1book6.jpg"},
+          {"name": "Faulker", "price": "$10", "imgpath": "assets/section2book1.jpg"},
+          {"name": "Tales of Austin", "price": "$12", "imgpath": "assets/section2book2.jpg"},
+          {"name": "Priari Song", "price": "$15", "imgpath": "assets/section2book3.jpg"},
+          {"name": "The letters of love", "price": "$17", "imgpath": "assets/section2book4.jpg"},
+          {"name": "Through sky war", "price": "$20", "imgpath": "assets/section2book5.jpg"},
+          {"name": "Deamons bride", "price": "$30", "imgpath": "assets/section2book6.jpg"},
+          {"name": "Love", "price": "$14", "imgpath": "assets/section2book4.jpg"},
+          {"name": "Defriencher", "price": "$13", "imgpath": "assets/section3book1.jpg"},
+          {"name": "Jeanne", "price": "$17", "imgpath": "assets/section3book2.jpg"},
+          {"name": "How to be wicked women", "price": "$19", "imgpath": "assets/section3book3.jpg"},
+      ]
+      
+      try {
+          const createdProducts = await productmodel.create(ProductCollection);
+          res.status(201).json(createdProducts); // Respond with created products
+      } catch (err) {
+          console.error('Error creating products:', err);
+          res.status(500).send('Error creating products'); // Handle error
+      }
+})
+
+app.get('/search/:ID',async (req,res)=>{
+     const param = req.params.ID;
+
+     try {
+         const products = await productmodel.find({ "name": { '$regex': param, '$options': 'i' } });
+ 
+         let result = products.map(product => ({
+             _id: product._id.toString(), // Convert ObjectId to string
+             name: product.name,
+             price: product.price,
+             imgpath: product.imgpath
+         }));
+ 
+         console.log(result); // Log results to server console
+ 
+         return res.status(200).json(result);
+     } catch (err) {
+         console.error('Error searching products:', err);
+         return res.status(500).json({ message: 'Error searching products' });
+     }
+});
 
 app.get('/logout',(req,res)=>{
    res.cookie('user','',{expires:new Date(Date.now())});

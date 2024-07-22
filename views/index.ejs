@@ -9,7 +9,7 @@
 </head>
 <body>
     <%- include('./Components/header',{ cookies: cookies }) %>   
-     <main>
+     <main class="storedbooks">
       <div class="background">
         <h1>Welcome to Open Library</h1>
         <img src="assets/background.jpg"/>
@@ -204,5 +204,18 @@
     <% } %> 
  </div>
       </div>
+    </main>
+    <main class="searchbooks">
+      <div class="background">
+        <h1>Welcome to Open Library</h1>
+        <!-- <img src="assets/background.jpg"/> -->
+        <div class="searchsection">
+          <input type="text" name="search" placeholder="Search for books" id="search">
+        </div>
+         <div class="section">
+          <h2>Searched Results</h2>
+          <div class="booksection"></div>
+          </div>
+          </div>
     </main>
     <%- include('./Components/footer.ejs') %>
