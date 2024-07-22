@@ -5,19 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management</title>
     <link rel="stylesheet" href="css/index.css"/>
-
+     <style>
+      .section
+      {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+      }
+      .booksubsection
+      {
+        display:flex;
+        justify-content : center;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        margin-bottom: 20px;
+      }
+      .section h3{
+        width: 100%;
+        text-align: center;
+      }
+     .searchbooks
+     {
+      display: flex;
+      justify-content:flex-start;
+      min-height: 80vh;
+      height: 100%;
+      width: 100%;
+     }
+     .background
+     {
+      width: 80%;
+      margin-top: 30px;
+     }
+     </style>
 </head>
 <body>
     <%- include('./Components/header',{ cookies: cookies }) %>   
-    <main class="searchbooks">
-      <div class="background">
-        <h1>Welcome to Open Library Cart</h1>
-        <div class="searchsection">
-          <input type="text" name="search" placeholder="Search for books" id="search">
-        </div>
+    <main class="searchbooks"  >
+      <div class="background" >
+        <h1>Items in cart</h1>
          <div class="section">
-          <h2>Searched Results</h2>
-          <div class="booksection"></div>
+          <div class="booksubsection"  id="image25">
+            <img src="assets/section5book1.jpg" />
+            <h3>$10</h3>
+            <button onclick="ImageSelector('image25',false)">Not In Library</button>
+          </div>
           </div>
           </div>
     </main>
